@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f4f8;
+  color: #25283b;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+#root > div {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 24px #25283b1a;
+}
+
+h1 {
+  margin: 0 0 24px;
+  text-align: center;
+  color: #34345f;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d5d7e2;
+  border-radius: 8px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid #7772e5;
+  border-color: transparent;
+}
+
+form button {
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #625dd5;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #504bc3;
+}
+
+.showData {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid #e5e6ed;
+  border-radius: 8px;
+  background: #fafaff;
+}
+
+
+.spanclass {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.spanclass span {
+  cursor: pointer;
+  color: #625dd5;
+}
+
+.spanclass span:last-child {
+  color: #c04d5a;
+}
+.atul {
+    text-align: center;
+    margin-top: 40px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+}
+
+.atul p {
+    margin: 0;
+    font-size: 15px;
+    color: #777;
+    letter-spacing: 0.5px;
+}
+
+.atul p span {
+    display: inline-block;
+}
+
