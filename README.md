@@ -1,16 +1,96 @@
-# React + Vite
+# Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Todo List app built with React and Vite. You can add, edit, and delete tasks, and your tasks are saved in the browser, so they stay after you refresh the page.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add a new task
+- Edit an existing task (the button changes from Submit to Update)
+- Delete a task with the × button
+- Duplicate tasks are blocked ("Already Exist" alert)
+- Empty tasks are ignored
+- Tasks are saved in `localStorage` and loaded again on refresh
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) (hooks: `useState`, `useEffect`)
+- [Vite](https://vitejs.dev/)
+- CSS
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the project
+
+```bash
+git clone <your-repo-url>
+cd <project-folder>
+```
+
+### 2. Install packages
+
+```bash
+npm install
+```
+
+### 3. Run the app
+
+```bash
+npm run dev
+```
+
+Open the link shown in the terminal (usually `http://localhost:5173`).
+
+## Project Structure
+
+```
+src/
+├── pages/
+│   └── Todo/
+│       ├── Todo.jsx
+│       └── Todo.css
+├── App.jsx
+└── main.jsx
+```
+
+> Change the paths above if your folders are different.
+
+## How It Works
+
+| State | Purpose |
+|---|---|
+| `todoList` | Array of all tasks |
+| `text` | Current value of the input box |
+| `editIndex` | `null` when adding, or the index of the task being edited |
+
+| Function | Purpose |
+|---|---|
+| `saveTodoList` | Adds a new task |
+| `editRow` | Puts the selected task in the input and switches to edit mode |
+| `updateTodoList` | Saves the changed task |
+| `deleteRows` | Removes a task using `filter` |
+
+Saving data:
+
+- On page load, `useState` reads the tasks from `localStorage`.
+- Every time `todoList` changes, `useEffect` saves it to `localStorage`.
+
+```
+Add / Edit / Delete → todoList changes → useEffect runs → saved in localStorage
+Refresh page        → useState reads localStorage      → tasks appear again
+```
+
+## Notes
+
+- Data is saved only in the same browser on the same computer.
+- If you clear the browser data, the tasks are removed.
+
+## Future Improvements
+
+- Mark a task as completed
+- Filter tasks (All / Completed / Pending)
+- Use unique IDs instead of the array index
+- Connect a backend and database
+
+## Author
+
+Made with ❤️ by Atul Aditya
